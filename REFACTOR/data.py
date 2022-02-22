@@ -1,4 +1,19 @@
 import __main__, screenDisplay
+import pandas as pd
+import numpy as np
+
+
+def test():
+    workoutSpreadsheet = pd.read_csv("../resources/data/workoutPicker_R.tsv", sep="\t")
+
+    tips1 = workoutSpreadsheet.to_numpy()
+    print(workoutSpreadsheet)
+
+    for row in tips1:
+        np.split(row, 3)
+        # DIVIDE ROWS INTO DICT. KEYS
+        for item in row:
+            print(item)
 
 
 # CLASS FOR WORKOUT DATA
@@ -15,7 +30,7 @@ def saveProgress(dialog, complete):
     screenDisplay.gui.button_yes["text"] = "Yes"
     screenDisplay.gui.button_no["text"] = "No"
     dialog["text"] = "Progress saved! Would you like to continue your workout?"
-    screenDisplay.gui.button_yes["command"] = lambda: Workout.workout(intro, Workout.incompleteWorkouts)
+    screenDisplay.gui.button_yes["command"] = lambda: Workout.workout(screenDisplay.gui.intro, Workout.incompleteWorkouts)
     screenDisplay.gui.button_no["command"] = quit
 
 
