@@ -1,4 +1,5 @@
-push-up	resources/image/pushup.jpg
-sit-up	resources/image/situp.jpg
-crunches	resources/image/crunch.jpg
-squats	resources/image/squat.jpg
+Workout	Description	Location
+push-up	1	resources/image/pushup.jpg
+sit-up	2	resources/image/situp.jpg
+crunches	3	resources/image/crunch.jpg
+squats	4	resources/image/squat.jpg
