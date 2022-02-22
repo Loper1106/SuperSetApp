@@ -3,36 +3,37 @@ import pandas as pd
 import numpy as np
 
 
-class WorkoutDictionary:
+class NewWorkout:
     # Initialize all Workout Information
     def __init__(self):
-        self.workoutDictionary = {}
-#         self.workoutName = self
-#         self.workoutDesc = self
+        self.workoutName = self
+        self.workoutDesc = self
+        self.imgLocation = self
+        # self.muscleGroup = self
 
 
-def importAllWorkouts(dict):
+def importAllWorkouts(dictionary):
     # Opens Workout Spreadsheet as pdArray
     workoutSpreadsheet = pd.read_csv("../resources/data/workoutPicker_R.tsv", sep="\t")
-
-    # DEBUG
-    # print(workoutSpreadsheet)
     workoutArray = workoutSpreadsheet.to_numpy()
 
     #  TURNING ROWS INTO DICTIONARY ENTRIES
     for row in workoutArray:
         np.split(row, 3)
         name, desc, imgLocation = row
-        dict.workoutDictionary[name].extend(desc, imgLocation)
-        # Divides each row into a key and values
-        # for item in row:
-        #     print(item)
-        #     workoutInit.workoutDictionary.append()
+        print(name, desc, imgLocation)
+
+        addWorkout = NewWorkout()
+        addWorkout.workoutName = name
+        addWorkout.workoutDesc = desc
+        addWorkout.imgLocation = imgLocation
+
+        dictionary.append(addWorkout)
 
 
 # CLASS FOR WORKOUT DATA
 def saveProgress(dialog, complete):
-    # Removes boxes when out of workout function
+    # Remove boxes when out of workout function
     screenDisplay.gui.numSetsReps_Box.grid_remove()
     screenDisplay.gui.numSetsReps_Label.grid_remove()
     img.grid_remove()
@@ -50,7 +51,7 @@ def saveProgress(dialog, complete):
 
 
 def loadProgress(dialog):
-    # Removes boxes when out of workout function
+    # Remove boxes when out of workout function
     screenDisplay.gui.numSetsReps_Box.grid_remove()
     screenDisplay.gui.numSetsReps_Label.grid_remove()
     img.grid_remove()
