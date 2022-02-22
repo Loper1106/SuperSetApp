@@ -1,19 +1,33 @@
-import __main__, screenDisplay
+import __main__, screenDisplay, workoutInit
 import pandas as pd
 import numpy as np
 
 
-def test():
+class WorkoutDictionary:
+    # Initialize all Workout Information
+    def __init__(self):
+        self.workoutDictionary = {}
+#         self.workoutName = self
+#         self.workoutDesc = self
+
+
+def importAllWorkouts(dict):
+    # Opens Workout Spreadsheet as pdArray
     workoutSpreadsheet = pd.read_csv("../resources/data/workoutPicker_R.tsv", sep="\t")
 
-    tips1 = workoutSpreadsheet.to_numpy()
-    print(workoutSpreadsheet)
+    # DEBUG
+    # print(workoutSpreadsheet)
+    workoutArray = workoutSpreadsheet.to_numpy()
 
-    for row in tips1:
+    #  TURNING ROWS INTO DICTIONARY ENTRIES
+    for row in workoutArray:
         np.split(row, 3)
-        # DIVIDE ROWS INTO DICT. KEYS
-        for item in row:
-            print(item)
+        name, desc, imgLocation = row
+        dict.workoutDictionary[name].extend(desc, imgLocation)
+        # Divides each row into a key and values
+        # for item in row:
+        #     print(item)
+        #     workoutInit.workoutDictionary.append()
 
 
 # CLASS FOR WORKOUT DATA
@@ -30,7 +44,8 @@ def saveProgress(dialog, complete):
     screenDisplay.gui.button_yes["text"] = "Yes"
     screenDisplay.gui.button_no["text"] = "No"
     dialog["text"] = "Progress saved! Would you like to continue your workout?"
-    screenDisplay.gui.button_yes["command"] = lambda: Workout.workout(screenDisplay.gui.intro, Workout.incompleteWorkouts)
+    screenDisplay.gui.button_yes["command"] = lambda: Workout.workout(screenDisplay.gui.intro,
+                                                                      Workout.incompleteWorkouts)
     screenDisplay.gui.button_no["command"] = quit
 
 
