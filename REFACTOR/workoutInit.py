@@ -1,8 +1,9 @@
 import __main__
+import screenDisplay
 
 
 def programInit():
     ##############
     # DIALOG BOX #
     ##############
-    __main__.gui.intro["text"] = "Would you like to workout?"
+    screenDisplay.gui.intro["text"] = "Would you like to workout?"
