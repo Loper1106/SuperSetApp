@@ -1,5 +1,5 @@
-import __main__
-import screenDisplay, data
+import data
+import screenDisplay
 
 
 class WorkoutLists:

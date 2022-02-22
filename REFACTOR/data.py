@@ -1,4 +1,4 @@
-import __main__, screenDisplay, workoutInit
+import screenDisplay
 import pandas as pd
 import numpy as np
 
