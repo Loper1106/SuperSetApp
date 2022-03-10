@@ -111,7 +111,7 @@ def progress(dialog):
     # screenDisplay.gui.numSetsReps_Label.grid_remove()
     # img.grid_remove()
     #
-    # dialog["text"] = "Progress Loaded..."
+    dialog["text"] = "Progress Loaded..."
     # screenDisplay.gui.currentWorkout_Label["text"] = "Complete Workouts: "
     # screenDisplay.gui.currentWorkout_Box["text"] = Workout.completeWorkouts
     # screenDisplay.gui.incompleteWorkout_Label.grid(row=3, column=0, columnspan=2, sticky="new")
@@ -119,9 +119,8 @@ def progress(dialog):
     # screenDisplay.gui.incompleteWorkout_Box["text"] = Workout.incompleteWorkouts
     #
     # # checks if list of incomplete workouts is empty
-    # if len(Workout.incompleteWorkouts) == 0:
-    #     dialog["text"] = "You have completed all your workouts!"
-    print("Test")
+    if len(WorkoutDictionary.incompleteWorkouts) == 0:
+        dialog["text"] = "You have completed all your workouts!"
     return
 
 
