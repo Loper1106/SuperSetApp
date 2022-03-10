@@ -2,28 +2,15 @@ import data
 import screenDisplay
 
 
-class WorkoutLists:
+def workout(allWorkouts, incompleteWorkouts):
 
-    def __init__(self):
-        self.allWorkouts = []
-        self.incompleteWorkouts = []
-        self.completeWorkouts = []
+    print(len(data.WorkoutDictionary.allWorkouts))
+    if len(incompleteWorkouts) == 0:
+        data.generateWorkout(data.WorkoutDictionary.allWorkouts, data.WorkoutDictionary.incompleteWorkouts)
 
 
+# Initiates Program
 def programInit():
 
-    dictionary = WorkoutLists()
-    data.importAllWorkouts(dictionary.allWorkouts)
-
-    # DEBUG
-    for i in dictionary.allWorkouts:
-        print("NEW ITERATION")
-        print("Name: ", i.workoutName)
-        print("Description: ",i.workoutDesc)
-        print("File Location: ", i.imgLocation)
-        print()
-
-    ##############
-    # DIALOG BOX #
-    ##############
-    screenDisplay.gui.intro["text"] = "Would you like to workout?"
+    # Imports all workouts from CSV file. Stores in data.AllWorkoutLists
+    data.importAllWorkouts(data.WorkoutDictionary.allWorkouts)
