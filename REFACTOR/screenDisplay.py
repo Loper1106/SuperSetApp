@@ -15,11 +15,12 @@ class Gui:
         self.window.geometry(f"{self.screenWidth}x{self.screenHeight}")
 
         # Button Init
-        self.intro = Label(self.window, bg="white", text="")
+        self.intro = Label(self.window, bg="white", text="WELCOME TO THE SUPER-SET APP!")
         self.intro.grid(row=0, column=3, columnspan=2, sticky="n")
 
         button_yes = Button(self.window, text="Workout", width=10,
-                            command=lambda: self.workout(self.window, self.incompleteWorkouts))
+                            command=lambda: workoutInit.workout(data.WorkoutDictionary.allWorkouts,
+                                                                data.WorkoutDictionary.incompleteWorkouts))
         button_yes.grid(row=8, column=1)
 
         button_no = Button(self.window, text="Exit", width=10, command=quit)
